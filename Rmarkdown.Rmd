@@ -1,0 +1,23 @@
+---
+title: "Factores que predicen la expectativa media"
+author: "Kenny Fang, Sebastián Rocha, Juan Pablo Salcedo, Catalina Sandoval"
+date: "2026-05-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## holaa
+```{r}
+library(readxl)
+base <- read_excel("C:/Users/marim/Downloads/LifeExpectancyData.xlsx")
+names(base) <- trimws(names(base))
+names(base) <- make.names(names(base))
+set.seed(2025)
+#muestra <- base[sample(seq_len(nrow(base)), size = 300, replace = FALSE), ]
+#muestra <- base[ sample((nrow(base)), size=300, replace = FALSE), ]
+base
+```
+
