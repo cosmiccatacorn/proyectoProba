@@ -11,13 +11,35 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Proyecto
 
+### Carga de los datos y selección de muestra
+
 ```{r}
-library(readxl)
-base <- `LifeExpectancyData.(1)`
+# Convertir explícitamente a data.frame
+base <- data.frame(`LifeExpectancyData.(1)`)
+
+# Limpiar nombres de columnas
 names(base) <- trimws(names(base))
 names(base) <- make.names(names(base))
+
+# Fijar semilla para reproducibilidad
 set.seed(2025)
-muestra <- base[ sample((nrow(base)), size=300, replace = FALSE), ]
+
+# Seleccionar 300 filas aleatorias y forzar estructura de data.frame
+muestra <- base[sample(nrow(base), 300, replace = FALSE), , drop = FALSE]
+
+
 #summary(base)
 ```
+
+### Análisis exploratorio de datos
+
+Con el propósito de determinar las variables cuantitativas más relevantes en el marco del estudio, se realiza un análisis exploratorio de datos sobre la población.
+```{r}
+library(dlookr)
+
+describe(base)
+
+```
+
+
 
