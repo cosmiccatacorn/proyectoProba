@@ -41,5 +41,87 @@ describe(base)
 
 ```
 
+```{r}
+# Instalar paquetes si no los tienes
+install.packages("tidyverse")
+install.packages("skimr")
 
+# Cargar librerías
+library(tidyverse)
+library(skimr)
 
+# Leer dataset
+df <- `LifeExpectancyData.(1)`
+
+# Ver primeras filas
+head(df)
+
+# Estructura del dataset
+str(df)
+
+# Dimensiones
+dim(df)
+
+# Nombres de columnas
+colnames(df)
+
+# Resumen estadístico
+summary(df)
+
+# Resumen más detallado
+skim(df)
+
+# Contar valores nulos
+colSums(is.na(df))
+
+# Tipos de datos
+sapply(df, class)
+
+# Histograma de una variable numérica
+#ggplot(df, aes(x = )) +
+ # geom_histogram(bins = 20)
+
+# Boxplot
+ggplot(df, aes(y = Life.expectancy)) +
+  geom_boxplot()
+
+# catterplot
+#ggplot(df, aes(x = edad, y = salario)) +
+ # geom_point()
+
+# Correlación entre variables numéricas
+numericas <- select(df, where(is.numeric))
+
+cor(numericas, use = "complete.obs")
+
+# Heatmap de correlaciones
+corrplot::corrplot(
+  cor(numericas, use = "complete.obs"),
+  method = "color"
+)
+
+# Distribución por categoría
+#ggplot(df, aes(x = genero)) +
+#  geom_bar()
+```
+A partir de lo anterior, se toman como variables explicativas:
+* Adult.Mortality
+* HIV/AIDS
+* 
+### Pregunta de investigación
+¿ Cómo incide la Mortalidad adulta y el VIH/SIDA en la expectativa de vida de un país?
+### Datos
+```{r}
+#Código en R con las variables explicativas y variable respuesta, sus NAN, outliers, 
+```
+explicación de eso :)
+### Análisis estadístico
+#### Muestreo
+está arriba, ya lo bajo jejej
+#### Análisis desciptivo
+describe del nuevo dataframe + histogramas y/o boxplots
+#### Modelo de reg. lineal múltiple
+#### ANOVA
+#### Intervalos de confianza para la regresión
+
+#### Análisis e interpretación de res
